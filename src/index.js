@@ -7,8 +7,7 @@ function createMenuCardsMarkup (menuItems) {
         .join('');
 }
 
-
-const {menuList, themeCheckbox, body} = refs;
+const {body, themeCheckbox} = refs;
 
 const Theme = {
     LIGHT: 'light-theme',
@@ -16,7 +15,7 @@ const Theme = {
   };
   
 // Устанавливаем тему по выбору и по умолнанию 
-function setTheme() {
+function changeTheme() {
     let themePage = localStorage.getItem('theme'); 
       if (themePage){
     body.classList.add(localStorage.getItem('theme'));
@@ -46,4 +45,4 @@ themeCheckbox.addEventListener('change', (e) => {
 // Создаем динамически разметку   
 const menuMarkup = createMenuCardsMarkup(menuItems);
 refs.menuList.insertAdjacentHTML('beforeend', menuMarkup) ;
-setTheme();
+changeTheme();
